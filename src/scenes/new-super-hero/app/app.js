@@ -10,6 +10,7 @@ export default function () {
       <Input label="Real Name" />
       <Input label="Nick Name" />
       <Input type="submit" value="Save" />
+      <Input type="reset" value="Clear" />
     </form>
   );
 }
