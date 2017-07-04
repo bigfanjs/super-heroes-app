@@ -11,3 +11,17 @@ export const addHero = function (hero) {
     hero: hero
   };
 };
+
+export const updateValue = function (name, value) {
+  return {
+    type: "FORM_UPDATE_VALUE",
+    name: name,
+    value: value
+  };
+};
+
+export const resetValue = function () {
+  return {
+    type: "FORM_RESET"
+  };
+};
