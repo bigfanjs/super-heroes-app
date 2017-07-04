@@ -2,11 +2,11 @@ import React from "react";
 
 import Input from "../input-field";
 
-import styles from "./app.scss";
+import "./app.css";
 
 export default function () {
   return (
-    <form className={styles.form}>
+    <form className="new-super-hero">
       <Input label="Real Name" />
       <Input label="Nick Name" />
     </form>
