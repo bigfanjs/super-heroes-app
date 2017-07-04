@@ -8,7 +8,7 @@ import "./App.css";
 const
   SuperHero = asyncComponent(() => import("./scenes/super-hero")),
   SuperHeroList = asyncComponent(() => import("./scenes/super-hero-list")),
-  NewSuperHero = asyncComponent(() => import("./scenes/new-hero-list"));
+  NewSuperHero = asyncComponent(() => import("./scenes/new-super-hero"));
 
 export default function () {
   return (
