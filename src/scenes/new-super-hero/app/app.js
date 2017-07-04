@@ -9,6 +9,7 @@ export default function () {
     <form className="new-super-hero">
       <Input label="Real Name" />
       <Input label="Nick Name" />
+      <Input type="submit" value="Save" />
     </form>
   );
 }
