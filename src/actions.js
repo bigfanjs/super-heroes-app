@@ -1,3 +1,5 @@
+import { v4 } from "node-uuid";
+
 export const removeHero = function (id) {
   return {
     type: "REMOVE_HERO",
@@ -8,7 +10,7 @@ export const removeHero = function (id) {
 export const addHero = function (hero) {
   return {
     type: "ADD_HERO",
-    hero: hero
+    hero: Object.assign({}, hero, {id: v4()})
   };
 };
 
@@ -20,7 +22,7 @@ export const updateValue = function (name, value) {
   };
 };
 
-export const resetValue = function () {
+export const resetValues = function () {
   return {
     type: "FORM_RESET"
   };
