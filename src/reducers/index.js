@@ -1,6 +1,6 @@
 import {combineReducers} from "redux";
 
-import heros from "./heros";
+import heroes from "./heroes";
 import formData from "./form-data";
 
-export default combineReducers({heros, formData});
+export default combineReducers({heroes, formData});
