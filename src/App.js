@@ -13,10 +13,10 @@ export default function () {
   return (
     <Router>
       <div>
-        <Route exact path="/" render={() => <Redirect to="/heros" />} />
-        <Route exact path="/heros" component={Heros} />
-        <Route path="/heros/edit/:id" component={EditHero} />
-        <Route path="/heros/new" component={EditHero} />
+        <Route exact path="/" render={() => <Redirect to="/heroes" />} />
+        <Route exact path="/heroes" component={Heros} />
+        <Route path="/heroes/edit/:id" component={EditHero} />
+        <Route path="/heroes/new" component={EditHero} />
       </div>
     </Router>
   );
