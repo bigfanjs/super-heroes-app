@@ -1,37 +1,50 @@
-import React from "react";
+import React, {Component} from "react";
 import {connect} from "react-redux";
 
-import {AddHero} from "../../../actions";
-import Input from "../input-field";
+import {addHero, resetValues} from "../../../actions";
+
+import Field from "../field";
+import Form from "../form";
 
 import "./app.css";
 
-class Form extends React.Component {
+class NewHero extends Component {
   constructor(props) {
     super(props);
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit(data) {
+    const {createHero, resetForm} = this.props;
+
+    createHero(data);
+    resetForm();
   }
 
   render() {
     return (
-      <div className="new-super-hero" >
-        <form onSubmit={this.handleSubmit}>
-          <Input name="realname" label="Real Name" />
-          <Input name="nickname" label="Nick Name" />
-          <Input type="submit" value="Save" />
-          <Input type="reset" value="Clear" />
-        </form>
+      <div className="new-super-hero">
+        <Form onSubmit={this.handleSubmit}>
+          <Field name="realname" label="Real Name" />
+          <Field name="nickname" label="Nick Name" />
+          <Field type="submit" value="Save" />
+          <Field type="reset" value="Clear" />
+        </Form>
       </div>
     );
   }
 }
 
-const mapStateToProps = function ({ formData }) {
-  return { values: formData };
+const mapDispatchToProps = function (dispatch) {
+  return {
+    createHero(hero) {
+      dispatch(addHero(hero));
+    },
+    resetForm() {
+      dispatch(resetValues());
+    }
+  };
 };
 
-export default connect(mapStateToProps)(Form);
+export default connect(undefined, mapDispatchToProps)(NewHero);
