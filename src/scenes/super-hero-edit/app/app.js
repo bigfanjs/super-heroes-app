@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
-import {addHero, resetValues} from "../../../actions";
+import {addHero, updateHero, resetValues, updateAllformValues} from "../../../actions";
 
 import Field from "../field";
 import Form from "../form";
@@ -15,10 +15,23 @@ class NewHero extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(data) {
-    const {createHero, resetForm} = this.props;
+  componentWillMount () {
+    const {isNew, hero, updateValues} = this.props;
 
-    createHero(data);
+    if (!isNew) {
+      updateValues(hero);
+    }
+  }
+
+  handleSubmit(data) {
+    const {createHero, resetForm, hero, isNew} = this.props;
+
+    if (isNew) {
+      createHero(data);
+    } else {
+      updateHero(hero.id, data);
+    }
+
     resetForm();
   }
 
@@ -36,15 +49,25 @@ class NewHero extends Component {
   }
 }
 
-const mapDispatchToProps = function (dispatch) {
-  return {
-    createHero(hero) {
-      dispatch(addHero(hero));
-    },
-    resetForm() {
-      dispatch(resetValues());
-    }
+const
+  mapStateToProps = function ({ heroes }, {match}) {
+    return {
+      hero: heroes.find((hero) => hero.id === match.params.id) || {},
+      isNew: typeof match.params.id === "undefined",
+    };
+  },
+  mapDispatchToProps = function (dispatch) {
+    return {
+      createHero(hero) {
+        dispatch(addHero(hero));
+      },
+      resetForm() {
+        dispatch(resetValues());
+      },
+      updateValues(values) {
+        dispatch(updateAllformValues(values));
+      }
+    };
   };
-};
 
-export default connect(undefined, mapDispatchToProps)(NewHero);
+export default connect(mapStateToProps, mapDispatchToProps)(NewHero);

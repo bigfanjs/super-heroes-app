@@ -24,18 +24,24 @@ class Field extends React.Component {
     return (
       <label>
         { label }:
-        <input type={type} onChange={this.handleChange} />
+        <input type={type} onChange={this.handleChange} value={value} />
       </label>
     );
   }
 }
 
-const mapDispatchToProps = function (dispatch) {
-  return {
-    updateValue(name, value) {
-      dispatch(updateValue(name, value));
-    }
+const
+  mapStateToProps = function ({ form }, { name, value, label }) {
+    return {
+      value: label ? form.values[ name ] : value
+    };
+  },
+  mapDispatchToProps = function (dispatch) {
+    return {
+      updateValue(name, value) {
+        dispatch(updateValue(name, value));
+      }
+    };
   };
-};
 
-export default connect(undefined, mapDispatchToProps)(Field);
+export default connect(mapStateToProps, mapDispatchToProps)(Field);

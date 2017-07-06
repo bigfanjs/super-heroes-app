@@ -10,8 +10,11 @@ export default function (state=initialState, action) {
     case "FORM_UPDATE_VALUE":
       return assign({}, state, {
         values: assign({}, state.values, {[action.name]: action.value})
-      }
-      );
+      });
+    case "FORM_UPDATE_ALL_VALUES":
+      return assign({}, state, {
+        values: assign({}, action.values, {id: null})
+      });
     case "FORM_RESET":
       return state;
     default:
