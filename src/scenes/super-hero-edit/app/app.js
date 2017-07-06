@@ -5,6 +5,7 @@ import {addHero, updateHero, resetValues, updateAllformValues} from "../../../ac
 
 import Field from "../field";
 import Form from "../form";
+import Submit from "../submit-button";
 
 import "./app.css";
 
@@ -41,8 +42,7 @@ class NewHero extends Component {
         <Form onSubmit={this.handleSubmit}>
           <Field name="realname" label="Real Name" />
           <Field name="nickname" label="Nick Name" />
-          <Field type="submit" value="Save" />
-          <Field type="reset" value="Clear" />
+          <Submit />
         </Form>
       </div>
     );

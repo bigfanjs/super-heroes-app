@@ -15,26 +15,20 @@ class Field extends React.Component {
   }
 
   render() {
-    const {label, value, type} = this.props;
-
-    if (!label) {
-      return <input type={type} value={value} />;
-    }
+    const {label, value} = this.props;
 
     return (
       <label>
         { label }:
-        <input type={type} onChange={this.handleChange} value={value} />
+        <input type="text" onChange={this.handleChange} value={value} />
       </label>
     );
   }
 }
 
 const
-  mapStateToProps = function ({ form }, { name, value, label }) {
-    return {
-      value: label ? form.values[ name ] : value
-    };
+  mapStateToProps = function ({ form }, { name }) {
+    return { value: form.values[ name ] };
   },
   mapDispatchToProps = function (dispatch) {
     return {
