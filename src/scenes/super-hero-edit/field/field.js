@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
+import TextField from "material-ui/TextField";
 
 import {updateValue} from "../../../actions";
 
@@ -18,10 +19,12 @@ class Field extends React.Component {
     const {label, value} = this.props;
 
     return (
-      <label>
-        { label }:
-        <input type="text" onChange={this.handleChange} value={value} />
-      </label>
+      <TextField
+        fullWidth
+        floatingLabelText={label}
+        onChange={this.handleChange}
+        value={value}
+        />
     );
   }
 }

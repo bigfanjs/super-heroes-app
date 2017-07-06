@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
+import AppBar from "material-ui/AppBar";
+import IconButton from "material-ui/IconButton";
+import NavigationClose from "material-ui/svg-icons/navigation/close";
 
 import {addHero, updateHero, resetValues, updateAllformValues} from "../../../actions";
 
@@ -15,6 +18,7 @@ class NewHero extends Component {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   componentWillMount () {
@@ -38,14 +42,29 @@ class NewHero extends Component {
     this.context.router.history.push("/heroes");
   }
 
+  handleClose() {
+    this.context.router.history.push("/heroes");
+  }
+
   render() {
     return (
-      <div className="new-super-hero">
-        <Form onSubmit={this.handleSubmit}>
-          <Field name="realname" label="Real Name" />
-          <Field name="nickname" label="Nick Name" />
-          <Submit />
-        </Form>
+      <div className="container">
+        <AppBar
+          title="Heroes"
+          iconElementLeft={
+            <IconButton onTouchTap={this.handleClose}>
+              <NavigationClose />
+            </IconButton>}
+          />
+        <div className="new-super-hero">
+          <Form onSubmit={this.handleSubmit}>
+            <Field name="realname" label="Real Name" />
+            <Field name="nickname" label="Nick Name" />
+            <div>
+              <Submit />
+            </div>
+          </Form>
+        </div>
       </div>
     );
   }

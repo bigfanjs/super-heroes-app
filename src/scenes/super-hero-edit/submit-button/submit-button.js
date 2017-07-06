@@ -1,5 +1,12 @@
 import React from "react";
+import RaisedButton from "material-ui/RaisedButton";
 
 export default function () {
-  return <input type="submit" />;
+  return (
+    <RaisedButton
+      type="submit"
+      primary
+      label="SUBMIT"
+      />
+  );
 }
