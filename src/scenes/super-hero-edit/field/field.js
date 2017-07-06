@@ -28,7 +28,7 @@ class Field extends React.Component {
 
 const
   mapStateToProps = function ({ form }, { name }) {
-    return { value: form.values[ name ] };
+    return { value: form.values[ name ] || "" };
   },
   mapDispatchToProps = function (dispatch) {
     return {

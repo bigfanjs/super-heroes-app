@@ -25,7 +25,7 @@ class NewHero extends Component {
   }
 
   handleSubmit(data) {
-    const {createHero, resetForm, hero, isNew} = this.props;
+    const {createHero, updateHero, resetForm, hero, isNew} = this.props;
 
     if (isNew) {
       createHero(data);
@@ -60,6 +60,9 @@ const
     return {
       createHero(hero) {
         dispatch(addHero(hero));
+      },
+      updateHero(id,data) {
+        dispatch(updateHero(id, data));
       },
       resetForm() {
         dispatch(resetValues());
