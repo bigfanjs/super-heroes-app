@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
 
 import {addHero, updateHero, resetValues, updateAllformValues} from "../../../actions";
 
@@ -34,6 +35,7 @@ class NewHero extends Component {
     }
 
     resetForm();
+    this.context.router.history.push("/heroes");
   }
 
   render() {
@@ -72,5 +74,9 @@ const
       }
     };
   };
+
+NewHero.contextTypes = {
+  router: PropTypes.object
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewHero);
