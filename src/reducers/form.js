@@ -13,7 +13,7 @@ export default function (state=initialState, action) {
       });
     case "FORM_UPDATE_ALL_VALUES":
       return assign({}, state, {
-        values: assign({}, action.values, {id: null})
+        values: assign({}, action.values)
       });
     case "FORM_RESET":
       return state;
