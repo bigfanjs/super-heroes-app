@@ -12,8 +12,8 @@ class Hero extends Component {
     this.handleEdit = this.handleEdit.bind(this);
   }
 
-  handleDelete(id) {
-    this.props.dispatch(removeHero(id));
+  handleDelete() {
+    this.props.dispatch(removeHero(this.props.hero.id));
   }
 
   handleEdit() {

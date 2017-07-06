@@ -10,7 +10,7 @@ export default function (state=[], action) {
         return hero;
       });
     case "REMOVE_HERO":
-      return state.filter((hero) => hero.id === action.id);
+      return state.filter((hero) => hero.id !== action.id);
     default:
       return state;
   }
