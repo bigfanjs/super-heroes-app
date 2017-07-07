@@ -16,12 +16,13 @@ class Field extends React.Component {
   }
 
   render() {
-    const {label, value} = this.props;
+    const {label, value, placeholder} = this.props;
 
     return (
       <TextField
         fullWidth
         floatingLabelText={label}
+        hintText={placeholder}
         onChange={this.handleChange}
         value={value}
         />

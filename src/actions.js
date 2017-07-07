@@ -1,5 +1,7 @@
 import { v4 } from "node-uuid";
 
+var id = 1;
+
 export const removeHero = function (id) {
   return {
     type: "REMOVE_HERO",
@@ -40,5 +42,30 @@ export const updateAllformValues = function (values) {
 export const resetValues = function () {
   return {
     type: "FORM_RESET"
+  };
+};
+
+export const stepForward = function () {
+  return {
+    type: "STEP_FORWARD"
+  };
+};
+
+export const stepBackwards = function () {
+  return {
+    type: "STEP_BACKWARDS"
+  };
+};
+
+export const addBattle = function () {
+  return {
+    type: "ADD_BATTLE",
+    id: id++
+  };
+};
+
+export const removeBattle = function () {
+  return {
+    type: "REMOVE_BATTLE"
   };
 };

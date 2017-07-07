@@ -5,11 +5,14 @@ import AppBar from "material-ui/AppBar";
 import IconButton from "material-ui/IconButton";
 import NavigationClose from "material-ui/svg-icons/navigation/close";
 
-import {addHero, updateHero, resetValues, updateAllformValues} from "../../../actions";
+import {
+  addHero,
+  updateHero,
+  resetValues,
+  updateAllformValues,
+} from "../../../actions";
 
-import Field from "../field";
-import Form from "../form";
-import Submit from "../submit-button";
+import Form from "../redux-form";
 
 import "./app.css";
 
@@ -18,7 +21,7 @@ class NewHero extends Component {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleClose = this.handleClose.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
   componentWillMount () {
@@ -30,6 +33,18 @@ class NewHero extends Component {
   }
 
   handleSubmit(data) {
+    const {createHero, updateHero, hero, isNew} = this.props;
+
+    if (isNew) {
+      createHero(data);
+    } else {
+      updateHero(hero.id, data);
+    }
+
+    this.context.router.history.push("/heroes");
+  }
+
+  submit(data) {
     const {createHero, updateHero, resetForm, hero, isNew} = this.props;
 
     if (isNew) {
@@ -57,13 +72,7 @@ class NewHero extends Component {
             </IconButton>}
           />
         <div className="new-super-hero">
-          <Form onSubmit={this.handleSubmit}>
-            <Field name="realname" label="Real Name" />
-            <Field name="nickname" label="Nick Name" />
-            <div>
-              <Submit />
-            </div>
-          </Form>
+          <Form onSubmit={this.submit} />
         </div>
       </div>
     );
@@ -71,10 +80,10 @@ class NewHero extends Component {
 }
 
 const
-  mapStateToProps = function ({ heroes }, {match}) {
+  mapStateToProps = function ({heroes}, {match}) {
     return {
       hero: heroes.find((hero) => hero.id === match.params.id) || {},
-      isNew: typeof match.params.id === "undefined",
+      isNew: typeof match.params.id === "undefined"
     };
   },
   mapDispatchToProps = function (dispatch) {
