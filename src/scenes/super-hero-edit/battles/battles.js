@@ -72,6 +72,3 @@ export default function () {
     <FieldArray name="battles" component={Battles} />
   );
 }
-
-
-// export default connect()(Battle);
