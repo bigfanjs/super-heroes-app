@@ -20,7 +20,7 @@ const Battles = function ({fields, meta: { touched, error, submitFailed }}) {
   return (
     <div>
       {(touched || submitFailed) && error && <span>{error}</span>}
-      {fields.map((battle, index) => (
+      { fields.map((battle, index) => (
         <Card key={index} style={{marginBottom: "15px"}}>
           <CardText>
             <Field

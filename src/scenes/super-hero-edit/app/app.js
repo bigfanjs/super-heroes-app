@@ -22,6 +22,7 @@ class NewHero extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.submit = this.submit.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   componentWillMount () {
