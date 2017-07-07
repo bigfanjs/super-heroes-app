@@ -110,4 +110,10 @@ const
 
 const FormContainer = connect(mapStateToProps, mapDispatchToProps)(Form);
 
-export default reduxForm({form: "heroes"})(FormContainer);
+export default reduxForm({
+  form: "heroes",
+  initialValues: {
+    powers: [""],
+    battles: [{}]
+  }
+})(FormContainer);

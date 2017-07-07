@@ -4,6 +4,7 @@ import TextField from "material-ui/TextField";
 
 const Input = ({input, label, meta: { touched, error }, ...custom}) => (
   <TextField
+    fullWidth={true}
     hintText={custom.placeholder}
     floatingLabelText={label}
     errorText={touched && error}

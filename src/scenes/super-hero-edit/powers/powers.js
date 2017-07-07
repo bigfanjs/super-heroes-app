@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import {Field, FieldArray} from "redux-form";
 import TextField from "material-ui/TextField";
 import RaisedButton from "material-ui/RaisedButton";
@@ -15,40 +15,35 @@ const Power = ({input, label, meta: { touched, error }, ...custom}) => (
   />
 );
 
-class Powers extends Component {
-  componentDidMount() {
-    this.props.fields.push();
-  }
-
-  render() {
-    const {fields, meta: { error }} = this.props;
-
-    return (
-      <ul style={{ listStyleType: "none", padding: 0 }}>
-        <li>
-          <RaisedButton label="Add Power" onTouchTap={() => fields.push()} />
-        </li>
-        { fields.map((power, index) => (
-          <li key={index}>
-            <Field
-              name={power}
-              type="text"
-              component={Power}
-              label={`Power #${index + 1}`}
+const Powers = function ({fields, meta: { error }}) {
+  return (
+    <ul style={{ listStyleType: "none", padding: 0 }}>
+      <li>
+        <RaisedButton
+          label="Add Power"
+          onTouchTap={() => fields.push()}
+          />
+      </li>
+      { fields.map((power, index) => (
+        <li key={index}>
+          <Field
+            name={power}
+            type="text"
+            component={Power}
+            label={`Power #${index + 1}`}
             />
-            <IconButton
-              label="Remove power"
-              iconStyle={{color: "#e62828", width: "30px", height: "30px"}}
-              onTouchTap={() => fields.remove(index)}>
-                <ActionHome />
-              </IconButton>
-          </li>
-        ))}
-        {error && <li className="error">{error}</li>}
-      </ul>
-    );
-  }
-}
+          <IconButton
+            label="Remove power"
+            iconStyle={{color: "#e62828", width: "30px", height: "30px"}}
+            onTouchTap={() => fields.remove(index)}>
+              <ActionHome />
+            </IconButton>
+        </li>
+      ))}
+      { error && <li className="error">{error}</li> }
+    </ul>
+  );
+};
 
 export default function () {
   return (
