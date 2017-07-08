@@ -19,7 +19,7 @@ export default function () {
       <Field name="realname" label="Real Name" component={Input} />
       <Field name="nickname" label="Nick Name" component={Input} />
       <Field name="girlfriend" label="Girl friend" component={Input} />
-      <Field name="age" label="Age" component={Input} />
+      <Field name="age" label="Age" type="number" component={Input} />
     </div>
   );
 }
