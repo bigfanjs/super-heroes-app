@@ -31,27 +31,26 @@ class Form extends Component {
   renderStepActions(step) {
     return (
       <div style={{margin: "10px 0"}}>
-        {
-          step === 2
-            ? <RaisedButton
-                type="submit"
-                label="SUBMIT"
-                primary={true}
-                />
-            : <RaisedButton
-                label="NEXT"
-                onTouchTap={this.handleNext}
-                primary={true}
-                />
+        { step === 2
+          ? <RaisedButton
+              type="submit"
+              label="SUBMIT"
+              primary={true}
+              />
+          : <RaisedButton
+              label="NEXT"
+              onTouchTap={this.handleNext}
+              primary={true}
+              />
         }
-        {step > 0 && (
+        { step > 0 && (
           <FlatButton
             label="Back"
             disabled={step === 0}
             disableTouchRipple={true}
             disableFocusRipple={true}
             onTouchTap={this.handlePrev}
-          />
+            />
         )}
       </div>
     );
@@ -95,7 +94,7 @@ class Form extends Component {
 
 const
   mapStateToProps = function ({stepIndex}) {
-    return { index: stepIndex, };
+    return { index: stepIndex };
   },
   mapDispatchToProps = function (dispatch) {
     return {
@@ -110,10 +109,4 @@ const
 
 const FormContainer = connect(mapStateToProps, mapDispatchToProps)(Form);
 
-export default reduxForm({
-  form: "heroes",
-  initialValues: {
-    powers: [""],
-    battles: [{}]
-  }
-})(FormContainer);
+export default reduxForm({})(FormContainer);

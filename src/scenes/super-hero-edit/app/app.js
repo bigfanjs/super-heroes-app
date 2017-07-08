@@ -66,14 +66,22 @@ class NewHero extends Component {
     return (
       <div className="container">
         <AppBar
-          title="Heroes"
+          title={(this.props.isNew ? "Create" : "Edit") + " Hero"}
           iconElementLeft={
             <IconButton onTouchTap={this.handleClose}>
               <NavigationClose />
             </IconButton>}
           />
         <div className="new-super-hero">
-          <Form onSubmit={this.submit} />
+          <Form
+            onSubmit={this.submit}
+            form={this.props.isNew ? "newHero" : "editHero"}
+            initialValues= {
+              this.props.isNew
+              ? {powers: [""],battles: [{}]}
+              : this.props.hero
+            }
+            />
         </div>
       </div>
     );
@@ -81,10 +89,11 @@ class NewHero extends Component {
 }
 
 const
-  mapStateToProps = function ({heroes}, {match}) {
+  mapStateToProps = function ({heroes, form}, {match}) {
     return {
       hero: heroes.find((hero) => hero.id === match.params.id) || {},
-      isNew: typeof match.params.id === "undefined"
+      isNew: typeof match.params.id === "undefined",
+      form: form
     };
   },
   mapDispatchToProps = function (dispatch) {
