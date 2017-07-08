@@ -24,27 +24,6 @@ export const updateHero = function (id, hero) {
   };
 };
 
-export const updateValue = function (name, value) {
-  return {
-    type: "FORM_UPDATE_VALUE",
-    name: name,
-    value: value
-  };
-};
-
-export const updateAllformValues = function (values) {
-  return {
-    type: "FORM_UPDATE_ALL_VALUES",
-    values: values
-  };
-};
-
-export const resetValues = function () {
-  return {
-    type: "FORM_RESET"
-  };
-};
-
 export const stepForward = function () {
   return {
     type: "STEP_FORWARD"

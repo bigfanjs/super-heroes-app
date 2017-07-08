@@ -7,9 +7,7 @@ import NavigationBack from "material-ui/svg-icons/navigation/arrow-back";
 
 import {
   addHero,
-  updateHero,
-  resetValues,
-  updateAllformValues,
+  updateHero
 } from "../../../actions";
 
 import Form from "../redux-form";
@@ -23,14 +21,6 @@ class NewHero extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.submit = this.submit.bind(this);
     this.handleClose = this.handleClose.bind(this);
-  }
-
-  componentWillMount() {
-    const {isNew, hero, updateValues} = this.props;
-
-    if (!isNew) {
-      updateValues(hero);
-    }
   }
 
   handleSubmit(data) {
@@ -106,12 +96,6 @@ const
       },
       updateHero(id,data) {
         dispatch(updateHero(id, data));
-      },
-      resetForm() {
-        dispatch(resetValues());
-      },
-      updateValues(values) {
-        dispatch(updateAllformValues(values));
       }
     };
   };
