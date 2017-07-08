@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
+import {Card, CardActions, CardHeader} from "material-ui/Card";
+import FlatButton from "material-ui/FlatButton";
 
 import {removeHero} from "../../../actions";
 
@@ -25,10 +27,23 @@ class Hero extends Component {
 
     return (
       <li>
-        <h2>{ nickname }</h2>
-        <p>{ realname }</p>
-        <button onClick={this.handleEdit}>Edit</button>
-        <button onClick={this.handleDelete}>Delete</button>
+        <Card>
+          <CardHeader
+            title={nickname}
+            subtitle={realname}
+            style={{backgroundColor: "#f0f0f0"}}
+            />
+          <CardActions>
+            <FlatButton
+              label="VIEW"
+              primary={true}
+              onTouchTap={this.handleEdit} />
+            <FlatButton
+              label="DELETE"
+              secondary={true}
+              onTouchTap={this.handleDelete} />
+          </CardActions>
+        </Card>
       </li>
     );
   }

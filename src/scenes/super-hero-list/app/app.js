@@ -1,5 +1,9 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
+import AppBar from "material-ui/AppBar";
+import IconButton from "material-ui/IconButton";
+import Menu from "material-ui/svg-icons/navigation/menu";
+import FlatButton from "material-ui/FlatButton";
 
 import HeroList from "../super-hero-list";
 
@@ -17,7 +21,15 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <button onClick={this.handleCreateNewHero}>New Hero</button>
+        <AppBar
+          title="Heroes"
+          iconElementLeft={
+            <IconButton>
+              <Menu />
+            </IconButton>
+          }
+          iconElementRight={<FlatButton label="New Hero" />}
+          />
         <HeroList />
       </div>
     );

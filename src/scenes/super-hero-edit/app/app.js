@@ -63,10 +63,12 @@ class NewHero extends Component {
   }
 
   render() {
+    const {isNew, hero} = this.props;
+
     return (
       <div className="container">
         <AppBar
-          title={(this.props.isNew ? "Create" : "Edit") + " Hero"}
+          title={(isNew ? "Create" : "Edit") + " Hero"}
           iconElementLeft={
             <IconButton onTouchTap={this.handleClose}>
               <NavigationClose />
@@ -75,11 +77,11 @@ class NewHero extends Component {
         <div className="new-super-hero">
           <Form
             onSubmit={this.submit}
-            form={this.props.isNew ? "newHero" : "editHero"}
+            form={isNew ? "newHero" : "editHero"}
             initialValues= {
-              this.props.isNew
+              isNew
               ? {powers: [""],battles: [{}]}
-              : this.props.hero
+              : hero
             }
             />
         </div>
