@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import AppBar from "material-ui/AppBar";
 import IconButton from "material-ui/IconButton";
-import NavigationClose from "material-ui/svg-icons/navigation/close";
+import NavigationBack from "material-ui/svg-icons/navigation/arrow-back";
 
 import {
   addHero,
@@ -25,7 +25,7 @@ class NewHero extends Component {
     this.handleClose = this.handleClose.bind(this);
   }
 
-  componentWillMount () {
+  componentWillMount() {
     const {isNew, hero, updateValues} = this.props;
 
     if (!isNew) {
@@ -58,7 +58,8 @@ class NewHero extends Component {
     this.context.router.history.push("/heroes");
   }
 
-  handleClose() {
+  handleClose(e) {
+    e.preventDefault();
     this.context.router.history.push("/heroes");
   }
 
@@ -71,7 +72,7 @@ class NewHero extends Component {
           title={(isNew ? "Create" : "Edit") + " Hero"}
           iconElementLeft={
             <IconButton onTouchTap={this.handleClose}>
-              <NavigationClose />
+              <NavigationBack />
             </IconButton>}
           />
         <div className="new-super-hero">
