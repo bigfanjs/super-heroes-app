@@ -5,14 +5,9 @@ import AppBar from "material-ui/AppBar";
 import IconButton from "material-ui/IconButton";
 import NavigationBack from "material-ui/svg-icons/navigation/arrow-back";
 
-import {
-  addHero,
-  updateHero
-} from "../../../actions";
+import {addHero, updateHero} from "../../../actions";
 
-import Form from "../redux-form";
-
-import "./app.css";
+import Form from "../form";
 
 class NewHero extends Component {
   constructor(props) {
