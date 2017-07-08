@@ -31,7 +31,7 @@ class NewHero extends Component {
   }
 
   submit(data) {
-    const {createHero, updateHero, resetForm, hero, isNew} = this.props;
+    const {createHero, updateHero, hero, isNew} = this.props;
 
     if (isNew) {
       createHero(data);
@@ -39,7 +39,6 @@ class NewHero extends Component {
       updateHero(hero.id, data);
     }
 
-    resetForm();
     this.context.router.history.push("/heroes");
   }
 
