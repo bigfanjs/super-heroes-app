@@ -20,7 +20,7 @@ class NewHero extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.submit = this.submit.bind(this);
-    this.handleClose = this.handleClose.bind(this);
+    this.handleBack = this.handleBack.bind(this);
   }
 
   handleSubmit(data) {
@@ -48,9 +48,12 @@ class NewHero extends Component {
     this.context.router.history.push("/heroes");
   }
 
-  handleClose(e) {
+  handleBack(e) {
     e.preventDefault();
-    this.context.router.history.push("/heroes");
+    const {isNew, hero} = this.props;
+    const direction = "/heroes" + (isNew ? "" : "/view/" + hero.id);
+
+    this.context.router.history.push(direction);
   }
 
   render() {
@@ -61,7 +64,7 @@ class NewHero extends Component {
         <AppBar
           title={(isNew ? "Create" : "Edit") + " Hero"}
           iconElementLeft={
-            <IconButton onTouchTap={this.handleClose}>
+            <IconButton onTouchTap={this.handleBack}>
               <NavigationBack />
             </IconButton>}
           />
