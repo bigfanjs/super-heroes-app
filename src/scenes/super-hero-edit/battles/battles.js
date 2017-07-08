@@ -4,6 +4,8 @@ import {Field, FieldArray} from "redux-form";
 import FlatButton from "material-ui/FlatButton";
 import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
+import {RadioButton, RadioButtonGroup} from "material-ui/RadioButton";
+import DatePicker from "material-ui/DatePicker";
 
 const Battle = ({input, label, meta: { touched, error }, ...custom}) => (
   <TextField
@@ -14,6 +16,15 @@ const Battle = ({input, label, meta: { touched, error }, ...custom}) => (
     {...input}
     {...custom}
     />
+);
+
+const renderRadioGroup = ({input, ...rest}) => (
+  <RadioButtonGroup
+    {...input}
+    {...rest}
+    valueSelected={input.value}
+    onChange={(event, value) => input.onChange(value)}
+  />
 );
 
 const Battles = function ({fields, meta: { touched, error, submitFailed }}) {
@@ -31,15 +42,16 @@ const Battles = function ({fields, meta: { touched, error, submitFailed }}) {
             />
             <Field
               name={`${battle}.result`}
-              type="text"
-              component={Battle}
-              label="Result"
-            />
+              component={renderRadioGroup}
+              style={{marginTop: "20px"}}>
+              <RadioButton value="win" label="WIN" />
+              <RadioButton value="lose" label="LOSE" />
+            </Field>
             <Field
-              name={`${battle}.date`}
-              type="text"
+              type="number"
+              name={`${battle}.year`}
               component={Battle}
-              label="Date"
+              label="Year"
             />
           </CardText>
           <CardActions>

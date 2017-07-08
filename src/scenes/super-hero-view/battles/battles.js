@@ -20,7 +20,7 @@ export default function ({ battles }) {
           <TableRow>
             <TableHeaderColumn>Against</TableHeaderColumn>
             <TableHeaderColumn>Result</TableHeaderColumn>
-            <TableHeaderColumn>Date</TableHeaderColumn>
+            <TableHeaderColumn>Year</TableHeaderColumn>
           </TableRow>
         </TableHeader>
         <TableBody>
