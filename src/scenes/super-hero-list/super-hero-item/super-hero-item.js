@@ -11,15 +11,15 @@ class Hero extends Component {
     super(props);
 
     this.handleDelete = this.handleDelete.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
+    this.handleView = this.handleView.bind(this);
   }
 
   handleDelete() {
     this.props.dispatch(removeHero(this.props.hero.id));
   }
 
-  handleEdit() {
-    this.context.router.history.push("/heroes/edit/" + this.props.hero.id);
+  handleView() {
+    this.context.router.history.push("/heroes/view/" + this.props.hero.id);
   }
 
   render() {
@@ -37,7 +37,7 @@ class Hero extends Component {
             <FlatButton
               label="VIEW"
               primary={true}
-              onTouchTap={this.handleEdit} />
+              onTouchTap={this.handleView} />
             <FlatButton
               label="DELETE"
               secondary={true}

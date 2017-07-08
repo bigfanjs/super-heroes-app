@@ -12,10 +12,15 @@ class App extends Component {
     super(props);
 
     this.handleCreateNewHero = this.handleCreateNewHero.bind(this);
+    this.handleMenuOpen = this.handleMenuOpen.bind(this);
   }
 
   handleCreateNewHero() {
     this.context.router.history.push("/heroes/new");
+  }
+
+  handleMenuOpen(e) {
+    e.preventDefault();
   }
 
   render() {
@@ -23,6 +28,8 @@ class App extends Component {
       <div className="container">
         <AppBar
           title="Heroes"
+          onLeftIconButtonTouchTap={this.handleMenuOpen}
+          onRightIconButtonTouchTap={this.handleCreateNewHero}
           iconElementLeft={
             <IconButton>
               <Menu />

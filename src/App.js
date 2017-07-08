@@ -7,7 +7,8 @@ import "./App.css";
 
 const
   EditHero = asyncComponent(() => import("./scenes/super-hero-edit")),
-  Heros = asyncComponent(() => import("./scenes/super-hero-list"));
+  Heros = asyncComponent(() => import("./scenes/super-hero-list")),
+  ViewHero = asyncComponent(() => import("./scenes/super-hero-view"));
 
 export default function () {
   return (
@@ -17,6 +18,7 @@ export default function () {
         <Route exact path="/heroes" component={Heros} />
         <Route path="/heroes/edit/:id" component={EditHero} />
         <Route path="/heroes/new" component={EditHero} />
+        <Route path="/heroes/view/:id" component={ViewHero} />
       </div>
     </Router>
   );
