@@ -5,6 +5,8 @@ import RaisedButton from "material-ui/RaisedButton";
 import IconButton from "material-ui/IconButton";
 import ActionHome from "material-ui/svg-icons/action/delete";
 
+import {required, maxLength, minLength} from "../../services/validations";
+
 const Power = ({input, label, meta: { touched, error }, ...custom}) => (
   <TextField
     hintText={custom.placeholder}
@@ -31,6 +33,7 @@ const Powers = function ({fields, meta: { error }}) {
             type="text"
             component={Power}
             label={`Power #${index + 1}`}
+            validate={[required, maxLength(30), minLength(3)]}
             />
           <IconButton
             label="Remove power"
