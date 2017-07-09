@@ -20,7 +20,10 @@ export default function ({ hero }) {
         <TableBody displayRowCheckbox={false}>
           { Object.keys(hero)
             .filter((key) => (
-              key !== "powers" && key !== "battles" && key !== "id"
+              key !== "powers" &&
+              key !== "battles" &&
+              key !== "id" &&
+              typeof hero[key] !== "undefined"
             ))
             .map((key) => (
               <TableRow key={key}>
