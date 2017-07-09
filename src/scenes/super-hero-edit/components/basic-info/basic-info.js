@@ -48,6 +48,12 @@ export default function () {
         component={Input}
         validate={[required, minValue(22), tooOld]}
         />
+      <Field
+        name="story"
+        label="Story"
+        component={Input}
+        multiLine={true}
+        />
     </div>
   );
 }
