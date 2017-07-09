@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
-import {Card, CardActions, CardHeader} from "material-ui/Card";
+import {Card, CardActions, CardTitle, CardText} from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
 
 import {removeHero} from "../../../actions";
@@ -23,16 +23,19 @@ class Hero extends Component {
   }
 
   render() {
-    const {realname, nickname} = this.props.hero;
+    const {realname, nickname, story} = this.props.hero;
 
     return (
-      <li>
+      <li style={{marginBottom: "20px"}}>
         <Card>
-          <CardHeader
+          <CardTitle
             title={nickname}
             subtitle={realname}
             style={{backgroundColor: "#f0f0f0"}}
             />
+          <CardText>
+            { story }
+          </CardText>
           <CardActions>
             <FlatButton
               label="VIEW"
