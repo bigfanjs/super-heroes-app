@@ -5,7 +5,8 @@ import FlatButton from "material-ui/FlatButton";
 import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
 import {RadioButton, RadioButtonGroup} from "material-ui/RadioButton";
-import DatePicker from "material-ui/DatePicker";
+
+import {required, maxLength, maxValue} from "../../services/validations";
 
 const Battle = ({input, label, meta: { touched, error }, ...custom}) => (
   <TextField
@@ -30,7 +31,7 @@ const renderRadioGroup = ({input, ...rest}) => (
 const Battles = function ({fields, meta: { touched, error, submitFailed }}) {
   return (
     <div>
-      {(touched || submitFailed) && error && <span>{error}</span>}
+      { (touched || submitFailed) && error && <span>{error}</span> }
       { fields.map((battle, index) => (
         <Card key={index} style={{marginBottom: "15px"}}>
           <CardText>
@@ -39,11 +40,13 @@ const Battles = function ({fields, meta: { touched, error, submitFailed }}) {
               type="text"
               component={Battle}
               label="Against"
+              validate={[required, maxLength(50)]}
             />
             <Field
               name={`${battle}.result`}
               component={renderRadioGroup}
-              style={{marginTop: "20px"}}>
+              style={{marginTop: "20px"}}
+              validate={[required]}>
               <RadioButton value="win" label="WIN" />
               <RadioButton value="lose" label="LOSE" />
             </Field>
@@ -52,6 +55,7 @@ const Battles = function ({fields, meta: { touched, error, submitFailed }}) {
               name={`${battle}.year`}
               component={Battle}
               label="Year"
+              validate={[required, maxValue(new Date().getFullYear())]}
             />
           </CardText>
           <CardActions>

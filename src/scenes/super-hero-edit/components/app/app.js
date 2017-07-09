@@ -5,7 +5,7 @@ import AppBar from "material-ui/AppBar";
 import IconButton from "material-ui/IconButton";
 import NavigationBack from "material-ui/svg-icons/navigation/arrow-back";
 
-import {addHero, updateHero} from "../../../actions";
+import {addHero, updateHero} from "../../../../actions";
 
 import Form from "../form";
 

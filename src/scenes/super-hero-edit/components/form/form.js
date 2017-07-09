@@ -9,7 +9,7 @@ import BasicInfo from "../basic-info";
 import Powers from "../powers";
 import Battles from "../battles";
 
-import {stepForward, stepBackwards} from "../../../actions";
+import {stepForward, stepBackwards} from "../../../../actions";
 
 class Form extends Component {
   constructor(props) {
@@ -35,10 +35,12 @@ class Form extends Component {
           ? <RaisedButton
               type="submit"
               label="SUBMIT"
+              disabled={!this.props.valid}
               primary={true}
               />
           : <RaisedButton
               label="NEXT"
+              disabled={!this.props.valid}
               onTouchTap={this.handleNext}
               primary={true}
               />
