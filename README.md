@@ -22,7 +22,7 @@ I used Redux-form for storing form data on the redux store. It provides great fe
   ``yarn start``
 
 ## Usage
-This app is mobile-first so before taking the steps bellow, please toggle the device toolbar on the browser or just manually resize it to take the shape of a mobile device.
+This app is mobile-first so before taking the steps bellow, please toggle the device toolbar on the browser or just manually resize your browser to take the shape of a mobile device.
 
 * Creating a new super hero:
   1. Start the App
