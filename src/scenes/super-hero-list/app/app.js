@@ -3,9 +3,17 @@ import PropTypes from "prop-types";
 import AppBar from "material-ui/AppBar";
 import IconButton from "material-ui/IconButton";
 import Menu from "material-ui/svg-icons/navigation/menu";
-import FlatButton from "material-ui/FlatButton";
+
+import FloatingActionButton from "material-ui/FloatingActionButton";
+import ContentAdd from "material-ui/svg-icons/content/add";
 
 import HeroList from "../super-hero-list";
+
+const style = {
+  position: "fixed",
+  bottom: 20,
+  right: 20
+};
 
 class App extends Component {
   constructor(props) {
@@ -29,15 +37,19 @@ class App extends Component {
         <AppBar
           title="Heroes"
           onLeftIconButtonTouchTap={this.handleMenuOpen}
-          onRightIconButtonTouchTap={this.handleCreateNewHero}
           iconElementLeft={
             <IconButton>
               <Menu />
             </IconButton>
           }
-          iconElementRight={<FlatButton label="New Hero" />}
           />
         <HeroList />
+        <FloatingActionButton
+          secondary={true}
+          style={style}
+          onTouchTap={this.handleCreateNewHero}>
+          <ContentAdd />
+        </FloatingActionButton>
       </div>
     );
   }
