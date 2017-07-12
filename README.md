@@ -1,6 +1,6 @@
 # Super Heroes App
 ## Heigh-level Preview
-The app main roll is to let the end users to create, update, and remove their own super heros. And each change users nake is locally persisted.
+The app's main roll is to let the end users to create, update, and remove their own super heros. And each change users make is locally persisted.
 ## Low-level Preview
 The application is developed with ReactJS. It uses Redux subscriber to sync the heroes data slice on the store to the localStorage whenever somthing changed. Then users would be able to access their data even if they exit the page or the browser. And in the case where the user wants to view a hero, the JSON string on the localstrorage was parsed to convert it back into a JavaScript object.  
 
