@@ -37,7 +37,3 @@ This app is mobile-first so before taking the steps bellow, please toggle the de
 * Removing a super hero.
   1. Start the App.
   2. Click on the _DELETE_ button.
-
-## Missing features
-1. Allow the user to assign each super hero an avatar and a symbol images.
-2. Making the application responsive. I designed the app to be mobile-first and the page layout does not quite fit large screens.
