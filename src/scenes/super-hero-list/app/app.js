@@ -37,6 +37,7 @@ class App extends Component {
         <AppBar
           title="Heroes"
           onLeftIconButtonTouchTap={this.handleMenuOpen}
+          style={{position: "fixed", top: 0}}
           iconElementLeft={
             <IconButton>
               <Menu />

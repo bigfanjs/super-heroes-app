@@ -57,12 +57,13 @@ class NewHero extends Component {
       <div className="container">
         <AppBar
           title={(isNew ? "Create" : "Edit") + " Hero"}
+          style={{position: "fixed", top: 0}}
           iconElementLeft={
             <IconButton onTouchTap={this.handleBack}>
               <NavigationBack />
             </IconButton>}
           />
-        <div className="new-super-hero">
+        <div className="new-super-hero" style={{marginTop: "64px"}}>
           <Form
             onSubmit={this.submit}
             form={isNew ? "newHero" : "editHero"}

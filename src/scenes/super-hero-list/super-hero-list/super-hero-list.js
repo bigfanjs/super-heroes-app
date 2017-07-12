@@ -5,7 +5,7 @@ import HeroItem from "../super-hero-item";
 
 const HeroList = function ({ heroes }) {
   return (
-    <ul style={{listStyleType: "none", padding: 0, margin: "10px 10px 0 10px"}}>
+    <ul style={{listStyleType: "none", padding: 0, margin: "80px 10px 0 10px"}}>
       { heroes.map((hero) => <HeroItem key={hero.id} hero={hero} />)}
     </ul>
   );
