@@ -1,30 +1,18 @@
 import React from "react";
-import Paper from "material-ui/Paper";
-import RefreshIndicator from "material-ui/RefreshIndicator";
+import CircularProgress from "material-ui/CircularProgress";
 
 const style = {
-  height: 100,
-  width: 100,
-  margin: 20,
-  textAlign: 'center',
-  display: 'inline-block',
-};
-
-const refresh = {
-  display: "inline-block",
-  position: "relative",
+  left: "50%",
+  top: "50%",
+  transform: "translate(-50%, -50%)",
+  position: "absolute"
 };
 
 export default function () {
   return (
-    <Paper style={style} zDepth={1}>
-      <RefreshIndicator
-        size={40}
-        left={10}
-        top={0}
-        status="loading"
-        style={refresh}
-        />
-    </Paper>
+    <CircularProgress
+      size={40}
+      style={style}
+      />
   );
 }

@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 
+import LoadingDialog from "./loading";
+
 export default function asyncComponent(importComponent) {
   class AsyncComponent extends Component {
     constructor(props) {
@@ -17,11 +19,11 @@ export default function asyncComponent(importComponent) {
     }
 
     render() {
-      const C = this.state.component;
+      const Component = this.state.component;
 
-      return C
-        ? <C {...this.props} />
-        : null;
+      return Component
+        ? <Component {...this.props} />
+        : <LoadingDialog />;
     }
 
   }

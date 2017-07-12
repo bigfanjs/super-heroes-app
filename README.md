@@ -40,5 +40,4 @@ This app is mobile-first so before taking the steps bellow, please toggle the de
 
 ## Missing features
 1. Allow the user to assign each super hero an avatar and a symbol images.
-2. Render a loading dialog box with a progress icon before the DOM is ready.
-3. Making the application responsive. I designed the app to be mobile-first and the page layout does not quite fit large screens.
+2. Making the application responsive. I designed the app to be mobile-first and the page layout does not quite fit large screens.
