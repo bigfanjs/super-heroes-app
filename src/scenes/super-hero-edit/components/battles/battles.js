@@ -5,6 +5,7 @@ import FlatButton from "material-ui/FlatButton";
 import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
 import {RadioButton, RadioButtonGroup} from "material-ui/RadioButton";
+import Add from "material-ui/svg-icons/content/add";
 
 import {required, maxLength, maxValue} from "../../services/validations";
 
@@ -61,15 +62,16 @@ const Battles = function ({fields, meta: { touched, error, submitFailed }}) {
           <CardActions>
             <FlatButton
               label="delete"
+              secondary={true}
               onTouchTap={() => fields.remove(index)}
               />
           </CardActions>
         </Card>
       ))}
       <RaisedButton
-        label="Add Battle"
         onTouchTap={() => fields.push({})}
-        fullWidth
+        fullWidth={true}
+        icon={ <Add /> }
         />
     </div>
   );
