@@ -37,3 +37,5 @@ This app is mobile-first so before taking the steps bellow, please toggle the de
 * Removing a super hero.
   1. Start the App.
   2. Click on the _DELETE_ button.
+  
+  ## See how it works
