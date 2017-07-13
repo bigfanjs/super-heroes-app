@@ -4,6 +4,8 @@ export default function (state=0, action) {
       return state += 1 ;
     case "STEP_BACKWARDS":
       return state -= 1;
+    case "RESET_STEPS":
+      return state = 0;
     default:
       return state;
   }

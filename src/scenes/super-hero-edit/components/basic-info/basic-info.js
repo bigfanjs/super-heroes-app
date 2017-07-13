@@ -53,7 +53,7 @@ export default function () {
         label="Story"
         component={Input}
         multiLine={true}
-        validate={[required, minLength(50), maxLength(100)]}
+        validate={[required, minLength(50), maxLength(300)]}
         />
     </div>
   );

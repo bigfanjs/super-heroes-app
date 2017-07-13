@@ -5,7 +5,7 @@ import AppBar from "material-ui/AppBar";
 import IconButton from "material-ui/IconButton";
 import NavigationBack from "material-ui/svg-icons/navigation/arrow-back";
 
-import {addHero, updateHero} from "../../../../actions";
+import {addHero, updateHero, resetSteps} from "../../../../actions";
 
 import Form from "../form";
 
@@ -40,6 +40,7 @@ class NewHero extends Component {
     }
 
     this.context.router.history.push("/heroes");
+    this.props.resetSteps();
   }
 
   handleBack(e) {
@@ -48,6 +49,7 @@ class NewHero extends Component {
     const direction = "/heroes" + (isNew ? "" : "/view/" + hero.id);
 
     this.context.router.history.push(direction);
+    this.props.resetSteps();
   }
 
   render() {
@@ -94,6 +96,9 @@ const
       },
       updateHero(id,data) {
         dispatch(updateHero(id, data));
+      },
+      resetSteps() {
+        dispatch(resetSteps());
       }
     };
   };

@@ -48,3 +48,9 @@ export const removeBattle = function () {
     type: "REMOVE_BATTLE"
   };
 };
+
+export const resetSteps = function () {
+  return {
+    type: "RESET_STEPS"
+  };
+};
