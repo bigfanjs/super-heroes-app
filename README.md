@@ -38,4 +38,5 @@ This app is mobile-first so before taking the steps bellow, please toggle the de
   1. Start the App.
   2. Click on the _DELETE_ button.
   
-  ## See how it works
+  ## See how it works on a Youtube video
+  https://www.youtube.com/watch?v=03cPvZo0yjE
