@@ -15,7 +15,7 @@ I used Redux-form for storing form data on the redux store. It provides great fe
 
 ## Installation
 1. Clone the repository  
-  ``git clone https://github.com/bigfanjs/sanad-tech-test.git``
+  ``git clone https://github.com/bigfanjs/super-heroes-app.git``
 2. Install the dependencies  
   ``npm install`` or ``yarn install``
 3. Start the application  
